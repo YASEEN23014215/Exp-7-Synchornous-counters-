@@ -99,3 +99,4 @@ endmodule
 
 
 ### RESULTS 
+Thus the Synchornous counters  up counter and down counter are verifed with truth table.
