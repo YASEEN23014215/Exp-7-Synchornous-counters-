@@ -1,4 +1,6 @@
-# Exp-6-Synchornous-counters - up counter and down counter 
+## NAME: YASEEN F
+## REFERENCE NO: 23014215
+# Exp 6 Synchornous counters  up counter and down counter 
 ### AIM: To implement 4 bit up and down counters and validate  functionality.
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
@@ -50,12 +52,19 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 
-### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+### PROGRAM
+
+module counter(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin
+A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
+A[1]=(((A[2])&(A[3]))^A[1]);
+A[2]=((A[3])^A[2]);
+A[3]=1^A[3];
+end
+endmodule
 
 
 
@@ -64,6 +73,7 @@ RegisterNumber:
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
+![exp 6 diagram](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/df171e6c-660c-4c3b-901f-29bfc9d09281)
 
 
 
@@ -74,11 +84,14 @@ RegisterNumber:
 
 ### TIMING DIGRAMS FOR COUNTER  
 
+![exp 6 timeline](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/6b43a95e-3479-433e-ac93-9418ba49ad9f)
 
 
 
 
 ### TRUTH TABLE 
+
+![exp 6 truthtable](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/b4308fe2-1911-42b1-b4f5-cada4489b08c)
 
 
 
