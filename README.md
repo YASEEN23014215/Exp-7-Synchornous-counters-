@@ -48,54 +48,72 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+```
+1.Create a new project in Quartus II software.
+2.Name the project as uc for upcounter and dc for downcounter.
+3.Create a new Verilog HDL file in the project file.
+4.Name the module as dc and uc for downcounter and upcounter.
+5.Within the module declare input and output variables.
+6.Complete the program.
+7.End the module.
+```
 
 
 
 ### PROGRAM
-
-module counter(clk,A);
-input clk;
-output reg[0:3]A;
-always@(posedge clk)
-begin
-A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
-A[1]=(((A[2])&(A[3]))^A[1]);
-A[2]=((A[3])^A[2]);
-A[3]=1^A[3];
-end
-endmodule
-
-
-
+# UP COUNTER
+```
+  module uc(clk, A);
+  input clk;
+  output reg [2:0]A;
+  always @(posedge clk)
+  begin
+  A[2]=(((A[0])&(A[1]))^A[2]);
+  A[1]=(A[0])^A[1];
+  A[0]=A[0]^1;
+  end
+  endmodule
+```
+# DOWN COUNTER
+```
+  module dc(clk,A);
+  input clk;
+  output reg [2:0]A;
+  always @(posedge clk)
+  begin
+  A[2]=(((~A[0])&(~A[1]))^A[2]);
+  A[1]=(~A[0])^A[1];
+  A[0]=1^A[0];
+  end
+  endmodule
+```
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
-![exp 6 diagram](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/df171e6c-660c-4c3b-901f-29bfc9d09281)
+## upcounter
+![image](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/6d606b0c-2f2b-4eea-8869-c89a4f1f9fc3)
 
-
-
-
-
+## downcounter
+![image](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/af2d3b3f-ddcb-428a-b26b-0a1048f36c65)
 
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+## upcounter
+![image](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/986d17b0-c705-4aea-bbdb-90fa9a091707)
 
-![exp 6 timeline](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/6b43a95e-3479-433e-ac93-9418ba49ad9f)
-
-
+## downcounter
+![image](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/b3fd538e-f15c-4cae-872a-1a9e753a6554)
 
 
 ### TRUTH TABLE 
+## upcounter
+![image](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/55f4f16f-0a3c-4caf-b6a0-64ae8dbc7cea)
 
-![exp 6 truthtable](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/b4308fe2-1911-42b1-b4f5-cada4489b08c)
-
-
-
-
+## downcounter
+![image](https://github.com/YASEEN23014215/Exp-7-Synchornous-counters-/assets/149365441/075a362d-85f4-47a6-86fe-622e06fa9d71)
 
 
 ### RESULTS 
